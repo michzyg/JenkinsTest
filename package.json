@@ -1,26 +1,31 @@
 {
-    "name": "JenkinsTest",
-    "version": "1.0.0",
-    "description": "A simple application for testing Jenkins pipelines",
-    "main": "src/app.js",
-    "scripts": {
-      "start": "node src/app.js",
-      "test": "jest",
-      "lint": "eslint src/"
-    },
-    "keywords": [
-      "jenkins",
-      "ci",
-      "cd",
-      "pipeline"
-    ],
-    "author": "",
-    "license": "MIT",
-    "dependencies": {
-      "express": "^4.18.2"
-    },
-    "devDependencies": {
-      "jest": "^29.5.0",
-      "eslint": "^8.42.0"
-    }
+  "name": "JenkinsTest",
+  "version": "1.0.0",
+  "description": "A simple application for testing Jenkins pipelines",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "jest --ci --reporters=default --reporters=jest-junit",
+    "lint": "eslint src/"
+  },
+  "keywords": [
+    "jenkins",
+    "ci",
+    "cd",
+    "pipeline"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "eslint": "^8.42.0",
+    "jest-junit": "^15.0.0"
+  },
+  "jest-junit": {
+    "outputDirectory": "test-results",
+    "outputName": "junit.xml"
   }
+}
