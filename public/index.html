@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Calculator</h1>
+        <div class="calculator">
+            <div class="input-group">
+                <label for="number1">First Number:</label>
+                <input type="number" id="number1" placeholder="Enter first number">
+            </div>
+            <div class="input-group">
+                <label for="number2">Second Number:</label>
+                <input type="number" id="number2" placeholder="Enter second number">
+            </div>
+            <div class="operations">
+                <button id="add">Add (+)</button>
+                <button id="subtract">Subtract (-)</button>
+                <button id="multiply">Multiply (×)</button>
+                <button id="divide">Divide (÷)</button>
+            </div>
+            <div class="result">
+                <h2>Result: <span id="result">-</span></h2>
+            </div>
+        </div>
+        <div class="app-info">
+            <p>Version: 1.0.0</p>
+            <p>This is a simple calculator app for testing Jenkins pipelines.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
