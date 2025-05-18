@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     tools {
-        nodejs 'NodeJS' // This part is working correctly!
+        nodejs 'NodeJS'
     }
     
     stages {
@@ -29,8 +29,11 @@ pipeline {
         
         stage('Lint') {
             steps {
-                bat 'npm run lint || echo Linting failed but continuing'
-                bat 'echo Linting completed'
+                // Use catch error to properly handle failures
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    bat 'npm run lint'
+                }
+                bat 'echo Linting completed or skipped'
             }
         }
         
@@ -46,7 +49,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 bat 'echo Deploying application...'
-                bat 'timeout 5'
+                bat 'timeout /t 5'
                 bat 'echo Application deployed successfully'
             }
         }
