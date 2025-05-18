@@ -49,7 +49,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 bat 'echo Deploying application...'
-                bat 'timeout /t 5'
+                // Fix the timeout command - use ping instead of timeout
+                bat 'ping -n 6 127.0.0.1 > nul'
                 bat 'echo Application deployed successfully'
             }
         }
